@@ -17,6 +17,5 @@ int main() {
 		partition_add_element(p, in);
 	}
 	solve(p);
-	partition_free(p);
 	return 0;
 }
