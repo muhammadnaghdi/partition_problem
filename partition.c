@@ -34,18 +34,6 @@ void partition_print_backward(partition *p) {
 	puts("");
 }
 
-void partition_copy_elements(partition *d, partition *s) {
-	if(d->max_size < s->size) {
-		puts("COPY_OVERFLOW_ERROR");
-		return;
-	}
-	d->size = 0;
-	d->sum = 0;
-	for (int i = 0; i < s->size; ++i) {
-		partition_add_element(d, s->elements[i]);
-	}
-}
-
 void partition_free(partition *p) {
 	free(p->elements);
 	free(p);
