@@ -5,10 +5,9 @@ typedef struct {
 	int sum;
 } partition;
 
-void initialize_partition(partition *p, int max_size);
-partition *create_partition(int max_size);
-void add_partition_element(partition *p, int e);
-void remove_last_partition_element(partition *p);
-void print_partition(partition *p);
-void copy_partition(partition *d, partition *s);
-void free_partition(partition *p);
+partition *partition_create(int max_size);
+void partition_add_element(partition *p, int e);
+void partition_remove_last_element(partition *p);
+void partition_print(partition *p);
+void partition_copy(partition *d, partition *s);
+void partition_free(partition *p);

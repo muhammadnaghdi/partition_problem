@@ -1,20 +1,22 @@
 void solve(partition *p) {
 	int size = p->size;
-	partition *forward = create_partition(size);
-	partition *backward = create_partition(size);
-	copy_partition_elements(forward, p);
-	for (int i = size - 1; i >= 1; --i) {
+	partition *forward = partition_create(size);
+	partition *backward = partition_create(size);
+	partition_copy_elements(forward, p);
+	for (int i = size - 1; i >= 0; --i) {
 		if(forward->sum == backward->sum) {
-			print_partition(forward);
+			partition_print(forward);
 			puts("");
-			print_partition(backward);
-			free_partition(forward);
-			free_partition(backward);
+			partition_print_backward(backward);
+			partition_free(forward);
+			partition_free(backward);
 			return;
 		}
-		add_partition_element(backward, forward->elements[i]);
-		remove_last_partition_element(forward);
+		partition_add_element(backward, forward->elements[i]);
+		partition_remove_last_element(forward);
 	}
 	puts("NOT_FOUND");
+	partition_free(forward);
+	partition_free(backward);
 	return;
 }
